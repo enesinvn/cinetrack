@@ -1,6 +1,8 @@
 # CineTrack
 
-İzlediğim filmleri ve dizileri tek yerden takip edebileceğim küçük bir uygulama. İzleyeceklerimi listeye atıyorum, izlediklerimi puanlıyorum, dizilerde kaçıncı bölümde kaldığımı kaydediyorum.
+Letterboxd ve IMDb gibi sitelere notlar tutmak yerine kendime küçük bir takip uygulaması yapmak istedim. CineTrack tam olarak bunun için: izlediğim filmleri ve dizileri kaydediyorum, sonra izleyeceklerimi listeye atıyorum, hangi dizide kaçıncı bölümde kaldığımı unutmamak için S2E05 gibi not düşüyorum, sevdiklerime 10 üzerinden puan veriyorum.
+
+Backend yok, sunucu yok. Bütün veriler sadece sizin tarayıcınızda (LocalStorage) duruyor; başka kimse görmüyor. Açıp doğrudan kullanmaya başlayabilirsiniz, kayıt olmaya falan gerek yok.
 
 **Canlı demo:** https://cinetrack-enes.netlify.app/
 
@@ -10,22 +12,40 @@
 
 ## Kullanılan Teknolojiler
 
-- React 18
-- Vite
-- Tailwind CSS
-- React Router
-- Sonner (bildirimler için)
-- lucide-react (ikonlar)
-- LocalStorage (verileri tarayıcıda saklamak için)
+React 18 ile yazdım, build tool olarak Vite kullandım çünkü dev server çok hızlı açılıyor. Stillendirme tarafında Tailwind CSS var, sayfalar arası geçişler için React Router. Toast bildirimleri için Sonner, ikonlar için lucide-react paketinden faydalandım. Veri tarafında ise işin içine backend katmamak için her şeyi tarayıcının LocalStorage'ında tutuyorum.
 
-## Özellikler
+## Neler Yapabiliyor
 
-- Film veya dizi ekleme, düzenleme ve silme
-- İzlendi / izlenecek olarak iki ayrı liste
-- Başlığa ve yönetmene göre arama, türe göre filtreleme
-- Yıla, puana, eklenme tarihine göre sıralama
-- 0-10 arası puanlama ve kişisel not alanı
-- Dizilerde sezon/bölüm takibi (S02E05 gibi) ve tek tıkla bir sonraki bölüm
-- Genel istatistik kartları (toplam, izlendi, ortalama puan, en sevilen tür vb.)
-- Silme öncesi onay penceresi ve silindikten sonra "geri al" seçeneği
-- Karanlık tema, responsive tasarım
+- Film ya da dizi ekleyip istediğin zaman düzenleyebilir veya silebilirsin
+- "İzlediklerim" ve "İzleyeceklerim" diye iki ayrı sekme var
+- Başlığa veya yönetmene göre arama, türe göre filtreleme yapılıyor
+- En yeniye, en yüksek puana, yıla veya alfabetik olarak sıralayabilirsin
+- 0-10 arası puan + her yapım için kendine özel not alanı
+- Dizilerde sezon/bölüm bilgisi tutuluyor, "Sonraki Bölüm" butonuyla tek tıkla sayaç artıyor
+- Anasayfada küçük bir istatistik paneli (toplam kayıt, izlenenlerin yüzdesi, ortalama puan, en sevdiğin tür gibi)
+- Yanlışlıkla bir şey silersen "geri al" seçeneği çıkıyor
+- Tamamen koyu tema, telefon ve tablette de düzgün açılıyor
+
+## Lokalde Çalıştırmak İstersen
+
+Sisteminizde Node.js (18 veya üstü) yüklü olması yeterli.
+
+```bash
+npm install
+npm run dev
+```
+
+Sonra `http://localhost:5173` adresinden açabilirsiniz. Production build almak isterseniz `npm run build` yazıp `dist/` klasörünü herhangi bir statik hosting'e (Netlify, Vercel, GitHub Pages vb.) atabilirsiniz.
+
+## Dosya Yapısı
+
+Yeni özellik eklerken nereye bakacağınızı bilmek için:
+
+```
+src/
+├── components/     Tekrar kullanılan UI parçaları (Navbar, MovieCard, Form vb.)
+├── pages/          Her route için ayrı sayfa
+├── interfaces/     Veri modeli (Movie tipi, validation)
+├── hooks/          Custom hook'lar (LocalStorage, istatistikler)
+└── App.jsx         Router ve global layout
+```
