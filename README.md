@@ -2,8 +2,6 @@
 
 Letterboxd ve IMDb gibi sitelere notlar tutmak yerine kendime küçük bir takip uygulaması yapmak istedim. CineTrack tam olarak bunun için: izlediğim filmleri ve dizileri kaydediyorum, sonra izleyeceklerimi listeye atıyorum, hangi dizide kaçıncı bölümde kaldığımı unutmamak için S2E05 gibi not düşüyorum, sevdiklerime 10 üzerinden puan veriyorum.
 
-Backend yok, sunucu yok. Bütün veriler sadece sizin tarayıcınızda (LocalStorage) duruyor; başka kimse görmüyor. Açıp doğrudan kullanmaya başlayabilirsiniz, kayıt olmaya falan gerek yok.
-
 **Canlı demo:** https://cinetrack-enes.netlify.app/
 
 ## Ekran Görüntüsü
@@ -25,27 +23,3 @@ React 18 ile yazdım, build tool olarak Vite kullandım çünkü dev server çok
 - Anasayfada küçük bir istatistik paneli (toplam kayıt, izlenenlerin yüzdesi, ortalama puan, en sevdiğin tür gibi)
 - Yanlışlıkla bir şey silersen "geri al" seçeneği çıkıyor
 - Tamamen koyu tema, telefon ve tablette de düzgün açılıyor
-
-## Lokalde Çalıştırmak İstersen
-
-Sisteminizde Node.js (18 veya üstü) yüklü olması yeterli.
-
-```bash
-npm install
-npm run dev
-```
-
-Sonra `http://localhost:5173` adresinden açabilirsiniz. Production build almak isterseniz `npm run build` yazıp `dist/` klasörünü herhangi bir statik hosting'e (Netlify, Vercel, GitHub Pages vb.) atabilirsiniz.
-
-## Dosya Yapısı
-
-Yeni özellik eklerken nereye bakacağınızı bilmek için:
-
-```
-src/
-├── components/     Tekrar kullanılan UI parçaları (Navbar, MovieCard, Form vb.)
-├── pages/          Her route için ayrı sayfa
-├── interfaces/     Veri modeli (Movie tipi, validation)
-├── hooks/          Custom hook'lar (LocalStorage, istatistikler)
-└── App.jsx         Router ve global layout
-```
