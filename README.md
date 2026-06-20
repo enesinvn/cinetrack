@@ -2,6 +2,8 @@
 
 İzlediğim filmleri ve dizileri tek yerden takip edebileceğim küçük bir uygulama. İzleyeceklerimi listeye atıyorum, izlediklerimi puanlıyorum, dizilerde kaçıncı bölümde kaldığımı kaydediyorum.
 
+**Canlı demo:** https://cinetrack-enes.netlify.app/
+
 ## Ekran Görüntüsü
 
 ![CineTrack](./screenshots/home.png)
