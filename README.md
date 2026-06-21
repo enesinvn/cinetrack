@@ -6,7 +6,7 @@
 
 ## Ekran Görüntüsü
 
-![CineTrack](./screenshots/home.png)
+![CineTrack uygulama ekranı](./screenshots/ekran-goruntusu.png)
 
 ## Özellikler
 
