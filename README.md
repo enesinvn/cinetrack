@@ -1,27 +1,54 @@
 # CineTrack
 
-Letterboxd ve IMDb gibi sitelere notlar tutmak yerine kendime küçük bir takip uygulaması yapmak istedim. CineTrack tam olarak bunun için: izlediğim filmleri ve dizileri kaydediyorum, sonra izleyeceklerimi listeye atıyorum, hangi dizide kaçıncı bölümde kaldığımı unutmamak için S2E05 gibi not düşüyorum, sevdiklerime 10 üzerinden puan veriyorum.
+İzlediğim ve izleyeceğim film/dizileri tek yerden takip ettiğim bir web uygulaması. Puan veriyorum, not düşüyorum, dizilerde hangi bölümde kaldığımı kaydediyorum. Veriler tarayıcıda (LocalStorage) tutuluyor, backend yok.
 
-Backend yok, sunucu yok. Bütün veriler tarayıcıda (LocalStorage) duruyor; başka kimse görmüyor. Açıp doğrudan kullanmaya başlayabilirsin, kayıt olmaya falan gerek yok.
-
-**Canlı demo:** https://cinetrack-enes.netlify.app/
+**Canlı demo:** https://cinetrack-enes.netlify.app/  
+**GitHub:** https://github.com/enesinvn/cinetrack
 
 ## Ekran Görüntüsü
 
 ![CineTrack](./screenshots/home.png)
 
+## Özellikler
+
+- Film ve dizi ekleme, düzenleme, silme (CRUD)
+- İzlendi / izlenecek listeleri, tek tıkla durum değiştirme
+- Film ve dizi ayrımı; dizilerde sezon/bölüm takibi (S05E16 gibi)
+- Dizi kartlarında "Sonraki Bölüm" butonu
+- Arama, tür filtresi, film/dizi filtresi, sıralama
+- 0–10 arası puanlama ve kişisel not alanı
+- Anasayfada istatistik kartları (toplam, ortalama puan, en sevilen tür, en yüksek puanlı yapım vb.)
+- Silme öncesi onay penceresi; silindikten sonra geri alma
+- Toast bildirimleri (ekleme, güncelleme, silme)
+- Karanlık tema, responsive tasarım
+
 ## Kullanılan Teknolojiler
 
-React 18 ile yazdım, build tool olarak Vite kullandım çünkü dev server çok hızlı açılıyor. Stillendirme tarafında Tailwind CSS var, sayfalar arası geçişler için React Router. Toast bildirimleri için Sonner, ikonlar için lucide-react paketinden faydalandım. Veri tarafında ise işin içine backend katmamak için her şeyi tarayıcının LocalStorage'ında tutuyorum.
+React 18, Vite, Tailwind CSS, React Router, Sonner, lucide-react, uuid, LocalStorage
 
-## Neler Yapabiliyor
+## Kurulum
 
-- Film ya da dizi ekleyip istediğin zaman düzenleyebilir veya silebilirsin
-- "İzlediklerim" ve "İzleyeceklerim" diye iki ayrı sekme var
-- Başlığa veya yönetmene göre arama, türe göre filtreleme yapılıyor
-- En yeniye, en yüksek puana, yıla veya alfabetik olarak sıralayabilirsin
-- 0-10 arası puan + her yapım için kendine özel not alanı
-- Dizilerde sezon/bölüm bilgisi tutuluyor, "Sonraki Bölüm" butonuyla tek tıkla sayaç artıyor
-- Anasayfada küçük bir istatistik paneli (toplam kayıt, izlenenlerin yüzdesi, ortalama puan, en sevdiğin tür gibi)
-- Yanlışlıkla bir şey silersen "geri al" seçeneği çıkıyor
-- Tamamen koyu tema, telefon ve tablette de düzgün açılıyor
+```bash
+npm install
+npm run dev
+```
+
+Tarayıcıda http://localhost:5173 adresinden açılır.
+
+Production build:
+
+```bash
+npm run build
+```
+
+## Klasör Yapısı
+
+```
+src/
+├── components/     Navbar, MovieCard, MovieForm, FilterBar, StatsDashboard vb.
+├── pages/          HomePage, WatchedPage, ToWatchPage, AddEditPage
+├── interfaces/     Movie veri modeli ve validasyon
+├── hooks/          useLocalStorage, useMovies, useStats
+├── App.jsx
+└── main.jsx
+```
