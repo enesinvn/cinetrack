@@ -2,8 +2,7 @@
 
 İzlediğim ve izleyeceğim film/dizileri tek yerden takip ettiğim bir web uygulaması. Puan veriyorum, not düşüyorum, dizilerde hangi bölümde kaldığımı kaydediyorum. Veriler tarayıcıda (LocalStorage) tutuluyor, backend yok.
 
-**Canlı demo:** https://cinetrack-enes.netlify.app/  
-**GitHub:** https://github.com/enesinvn/cinetrack
+**Canlı demo:** https://cinetrack-enes.netlify.app/
 
 ## Ekran Görüntüsü
 
