@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useLocalStorage } from './useLocalStorage';
-import { MEDIA_TYPE, MOVIE_STATUS, normalizeMovie } from '../interfaces/Movie';
+import { MEDIA_TYPE, MOVIE_STATUS, migrateStoredMovie, normalizeMovie } from '../interfaces/Movie';
 
 const STORAGE_KEY = 'cinetrack_movies';
 
@@ -63,17 +63,15 @@ export function useMovies() {
   const [movies, setMovies] = useLocalStorage(STORAGE_KEY, SEED_DATA);
   const migratedRef = useRef(false);
 
-  // Geriye donuk uyumluluk: eski LocalStorage verilerine eksik alanlari ekle (type, episode vs).
+  // Geriye donuk uyumluluk: eksik alanlar + eski tur/not metinlerini duzelt.
   useEffect(() => {
     if (migratedRef.current) return;
     migratedRef.current = true;
     setMovies((prev) => {
-      const needsMigration = prev.some(
-        (m) => m.type === undefined || m.currentEpisode === undefined,
-      );
-      return needsMigration ? prev.map(normalizeMovie) : prev;
+      const migrated = prev.map(migrateStoredMovie);
+      const changed = JSON.stringify(migrated) !== JSON.stringify(prev);
+      return changed ? migrated : prev;
     });
-    // setMovies useCallback referansi stabil, dependency'e gerek yok.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -92,6 +92,30 @@ export const normalizeMovie = (movie) => ({
   ...movie,
 });
 
+/** Eski ASCII tur adlari -> guncel Turkce karakterli adlar */
+const LEGACY_GENRE_MAP = {
+  Savas: 'Savaş',
+  Suc: 'Suç',
+};
+
+/** Ornek veri notlarinin eski halleri */
+const LEGACY_NOTE_FIXES = {
+  'Ruyalar icinde ruyalar. Mukemmel kurgu.': 'Rüyalar içinde rüyalar. Mükemmel kurgu.',
+  'Tum zamanlarin en iyi dizisi.': 'Tüm zamanların en iyi dizisi.',
+};
+
+/**
+ * LocalStorage'daki eski kayitlari guncel formata cevirir.
+ * @param {Partial<Movie>} movie
+ * @returns {Movie}
+ */
+export const migrateStoredMovie = (movie) => {
+  const normalized = normalizeMovie(movie);
+  const genre = LEGACY_GENRE_MAP[normalized.genre] || normalized.genre;
+  const notes = LEGACY_NOTE_FIXES[normalized.notes] ?? normalized.notes;
+  return { ...normalized, genre, notes };
+};
+
 /**
  * Bir film nesnesinin gecerli olup olmadigini kontrol eder.
  * @param {Partial<Movie>} movie
