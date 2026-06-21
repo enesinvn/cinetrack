@@ -12,9 +12,9 @@ export default function WatchedPage({ movies, onDelete, onToggleStatus, onNextEp
           <Eye className="w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight">Izlediklerim</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">İzlediklerim</h1>
           <p className="text-sm text-slate-400">
-            Bugune kadar tamamladigin {watched.length} yapim.
+            Bugüne kadar tamamladığın {watched.length} yapım.
           </p>
         </div>
       </div>
@@ -25,8 +25,8 @@ export default function WatchedPage({ movies, onDelete, onToggleStatus, onNextEp
         onToggleStatus={onToggleStatus}
         onNextEpisode={onNextEpisode}
         onRestore={onRestore}
-        emptyTitle="Henuz izlenmis bir kayit yok"
-        emptyMessage="Bir filmi 'Izledim' olarak isaretleyince burada gorunecek."
+        emptyTitle="Henüz izlenmiş bir kayıt yok"
+        emptyMessage="Bir filmi 'İzledim' olarak işaretleyince burada görünecek."
         emptyIcon={Eye}
       />
     </section>

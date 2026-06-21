@@ -77,7 +77,7 @@ export default function App() {
         </main>
         <footer className="border-t border-slate-800/50 py-6 text-center text-xs text-slate-500">
           <p>
-            CineTrack &copy; {new Date().getFullYear()} - React + Vite + Tailwind CSS ile gelistirildi.
+            CineTrack &copy; {new Date().getFullYear()} — React + Vite + Tailwind CSS ile geliştirildi.
           </p>
         </footer>
         <Toaster

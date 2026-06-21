@@ -24,8 +24,8 @@ export const MOVIE_STATUS = Object.freeze({
 });
 
 export const STATUS_LABELS = {
-  [MOVIE_STATUS.WATCHED]: 'Izlendi',
-  [MOVIE_STATUS.TO_WATCH]: 'Izlenecek',
+  [MOVIE_STATUS.WATCHED]: 'İzlendi',
+  [MOVIE_STATUS.TO_WATCH]: 'İzlenecek',
 };
 
 export const MEDIA_TYPE = Object.freeze({
@@ -52,8 +52,8 @@ export const GENRES = [
   'Korku',
   'Polisiye',
   'Romantik',
-  'Savas',
-  'Suc',
+  'Savaş',
+  'Suç',
   'Tarihi',
   'Western',
 ];
@@ -100,27 +100,27 @@ export const normalizeMovie = (movie) => ({
 export const validateMovie = (movie) => {
   const errors = {};
   if (!movie.title || movie.title.trim().length < 1) {
-    errors.title = 'Baslik zorunludur';
+    errors.title = 'Başlık zorunludur';
   }
   if (!movie.genre) {
-    errors.genre = 'Tur seciniz';
+    errors.genre = 'Tür seçiniz';
   }
   const yearNum = Number(movie.year);
   if (!Number.isFinite(yearNum) || yearNum < 1888 || yearNum > new Date().getFullYear() + 5) {
-    errors.year = 'Gecerli bir yil giriniz';
+    errors.year = 'Geçerli bir yıl giriniz';
   }
   const ratingNum = Number(movie.rating);
   if (!Number.isFinite(ratingNum) || ratingNum < 0 || ratingNum > 10) {
-    errors.rating = 'Puan 0-10 arasinda olmalidir';
+    errors.rating = 'Puan 0-10 arasında olmalıdır';
   }
   if (movie.type === MEDIA_TYPE.SERIES) {
     const season = Number(movie.currentSeason);
     const episode = Number(movie.currentEpisode);
     if (!Number.isFinite(season) || season < 1) {
-      errors.currentSeason = 'Sezon 1 veya daha buyuk olmalidir';
+      errors.currentSeason = 'Sezon 1 veya daha büyük olmalıdır';
     }
     if (!Number.isFinite(episode) || episode < 1) {
-      errors.currentEpisode = 'Bolum 1 veya daha buyuk olmalidir';
+      errors.currentEpisode = 'Bölüm 1 veya daha büyük olmalıdır';
     }
   }
   return { valid: Object.keys(errors).length === 0, errors };

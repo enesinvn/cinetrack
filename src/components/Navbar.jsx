@@ -2,9 +2,9 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Film, Plus, Eye, Clock, LayoutGrid } from 'lucide-react';
 
 const links = [
-  { to: '/', label: 'Tumu', icon: LayoutGrid, end: true },
-  { to: '/watched', label: 'Izlenenler', icon: Eye },
-  { to: '/to-watch', label: 'Izlenecekler', icon: Clock },
+  { to: '/', label: 'Tümü', icon: LayoutGrid, end: true },
+  { to: '/watched', label: 'İzlenenler', icon: Eye },
+  { to: '/to-watch', label: 'İzlenecekler', icon: Clock },
 ];
 
 export default function Navbar({ stats }) {

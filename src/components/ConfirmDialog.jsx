@@ -6,7 +6,7 @@ export default function ConfirmDialog({
   title = 'Emin misiniz?',
   message,
   confirmLabel = 'Sil',
-  cancelLabel = 'Vazgec',
+  cancelLabel = 'Vazgeç',
   onConfirm,
   onCancel,
 }) {

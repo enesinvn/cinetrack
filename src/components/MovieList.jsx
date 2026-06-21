@@ -61,13 +61,13 @@ export default function MovieList({
     onDelete(snapshot.id);
     setConfirmTarget(null);
     toast.success('Silindi', {
-      description: `"${snapshot.title}" listenden cikarildi.`,
+      description: `"${snapshot.title}" listenden çıkarıldı.`,
       action: onRestore
         ? {
             label: 'Geri al',
             onClick: () => {
               onRestore(snapshot);
-              toast.info('Geri yuklendi', { description: `"${snapshot.title}" eski haline geldi.` });
+              toast.info('Geri yüklendi', { description: `"${snapshot.title}" eski haline geldi.` });
             },
           }
         : undefined,
@@ -94,8 +94,8 @@ export default function MovieList({
 
       {filtered.length === 0 ? (
         <EmptyState
-          title="Eslesen sonuc bulunamadi"
-          message="Arama veya filtre kriterlerini degistirmeyi deneyin."
+          title="Eşleşen sonuç bulunamadı"
+          message="Arama veya filtre kriterlerini değiştirmeyi deneyin."
           actionLabel="Filtreleri temizle"
           actionHref={null}
         />
@@ -115,14 +115,14 @@ export default function MovieList({
 
       <ConfirmDialog
         open={!!confirmTarget}
-        title="Bu kayit silinsin mi?"
+        title="Bu kayıt silinsin mi?"
         message={
           confirmTarget
-            ? `"${confirmTarget.title}" kalici olarak silinecek. Bu islem geri alinamaz.`
+            ? `"${confirmTarget.title}" kalıcı olarak silinecek. Bu işlem geri alınamaz.`
             : ''
         }
         confirmLabel="Evet, sil"
-        cancelLabel="Vazgec"
+        cancelLabel="Vazgeç"
         onConfirm={handleConfirmDelete}
         onCancel={() => setConfirmTarget(null)}
       />

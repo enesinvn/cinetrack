@@ -60,7 +60,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="md:col-span-2">
-          <label className={labelClass}>Yapim Tipi</label>
+          <label className={labelClass}>Yapım Tipi</label>
           <div className="flex gap-2">
             {Object.values(MEDIA_TYPE).map((type) => {
               const Icon = type === MEDIA_TYPE.SERIES ? Tv : Film;
@@ -86,14 +86,14 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
 
         <div className="md:col-span-2">
           <label htmlFor="title" className={labelClass}>
-            {isSeries ? 'Dizi' : 'Film'} Adi <span className="text-rose-400">*</span>
+            {isSeries ? 'Dizi' : 'Film'} Adı <span className="text-rose-400">*</span>
           </label>
           <input
             id="title"
             type="text"
             value={form.title}
             onChange={handleChange('title')}
-            placeholder={isSeries ? 'Ornek: Breaking Bad' : 'Ornek: Inception'}
+            placeholder={isSeries ? 'Örnek: Breaking Bad' : 'Örnek: Inception'}
             className="input"
             autoFocus
           />
@@ -102,21 +102,21 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
 
         <div>
           <label htmlFor="director" className={labelClass}>
-            Yonetmen
+            Yönetmen
           </label>
           <input
             id="director"
             type="text"
             value={form.director}
             onChange={handleChange('director')}
-            placeholder="Ornek: Christopher Nolan"
+            placeholder="Örnek: Christopher Nolan"
             className="input"
           />
         </div>
 
         <div>
           <label htmlFor="genre" className={labelClass}>
-            Tur <span className="text-rose-400">*</span>
+            Tür <span className="text-rose-400">*</span>
           </label>
           <select id="genre" value={form.genre} onChange={handleChange('genre')} className="input">
             {GENRES.map((g) => (
@@ -130,7 +130,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
 
         <div>
           <label htmlFor="year" className={labelClass}>
-            Yapim Yili <span className="text-rose-400">*</span>
+            Yapım Yılı <span className="text-rose-400">*</span>
           </label>
           <input
             id="year"
@@ -173,7 +173,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label htmlFor="currentSeason" className={labelClass}>
-                  Su Anki Sezon
+                  Şu Anki Sezon
                 </label>
                 <input
                   id="currentSeason"
@@ -187,7 +187,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
               </div>
               <div>
                 <label htmlFor="currentEpisode" className={labelClass}>
-                  Su Anki Bolum
+                  Şu Anki Bölüm
                 </label>
                 <input
                   id="currentEpisode"
@@ -216,7 +216,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
               </div>
             </div>
             <p className="mt-2 text-xs text-slate-400">
-              Onizleme:{' '}
+              Önizleme:{' '}
               <span className="font-mono text-sky-300">
                 S{String(form.currentSeason || 1).padStart(2, '0')}E
                 {String(form.currentEpisode || 1).padStart(2, '0')}
@@ -241,11 +241,11 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
             <div className="mt-2 flex items-center gap-3 text-xs text-slate-400">
               <img
                 src={form.poster}
-                alt="Onizleme"
+                alt="Önizleme"
                 className="w-12 h-16 object-cover rounded-md border border-slate-700"
                 onError={(e) => (e.currentTarget.style.display = 'none')}
               />
-              <span>Poster onizlemesi</span>
+              <span>Poster önizlemesi</span>
             </div>
           )}
         </div>
@@ -272,14 +272,14 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
 
         <div className="md:col-span-2">
           <label htmlFor="notes" className={labelClass}>
-            Kisisel Notlar
+            Kişisel Notlar
           </label>
           <textarea
             id="notes"
             rows={3}
             value={form.notes}
             onChange={handleChange('notes')}
-            placeholder="Hakkinda dusuncelerin, kisa yorum..."
+            placeholder="Hakkında düşüncelerin, kısa yorum..."
             className="input resize-none"
           />
         </div>
@@ -288,7 +288,7 @@ export default function MovieForm({ initialValue, onSubmit, onCancel, submitLabe
       <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-800">
         <button type="button" onClick={onCancel} className="btn-ghost">
           <X className="w-4 h-4" />
-          Iptal
+          İptal
         </button>
         <button type="submit" className="btn-primary">
           <Save className="w-4 h-4" />

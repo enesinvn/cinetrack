@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { Film, Plus } from 'lucide-react';
 
 export default function EmptyState({
-  title = 'Henuz kayit yok',
-  message = 'Listene bir film veya dizi ekleyerek baslayabilirsin.',
-  actionLabel = 'Ilk Filmini Ekle',
+  title = 'Henüz kayıt yok',
+  message = 'Listene bir film veya dizi ekleyerek başlayabilirsin.',
+  actionLabel = 'İlk Filmini Ekle',
   actionHref = '/add',
   icon: Icon = Film,
 }) {

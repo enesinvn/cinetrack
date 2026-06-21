@@ -36,11 +36,11 @@ export default function StatsDashboard({ movies }) {
   const avgRatingDisplay = stats.avgRating > 0 ? stats.avgRating.toFixed(1) : '-';
 
   return (
-    <section className="mb-6 animate-fade-in" aria-label="Istatistikler">
+    <section className="mb-6 animate-fade-in" aria-label="İstatistikler">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <StatCard
           icon={Library}
-          label="Toplam Kayit"
+          label="Toplam Kayıt"
           value={stats.total}
           subtitle={`${stats.movieCount} film + ${stats.seriesCount} dizi`}
           gradient="bg-gradient-to-br from-indigo-500/10 to-transparent"
@@ -48,17 +48,17 @@ export default function StatsDashboard({ movies }) {
         />
         <StatCard
           icon={Eye}
-          label="Izlendi"
+          label="İzlendi"
           value={stats.watched}
-          subtitle={stats.total > 0 ? `%${Math.round((stats.watched / stats.total) * 100)} tamamlandi` : ''}
+          subtitle={stats.total > 0 ? `%${Math.round((stats.watched / stats.total) * 100)} tamamlandı` : ''}
           gradient="bg-gradient-to-br from-emerald-500/10 to-transparent"
           iconBg="bg-emerald-500/20 text-emerald-300"
         />
         <StatCard
           icon={Clock}
-          label="Izlenecek"
+          label="İzlenecek"
           value={stats.toWatch}
-          subtitle={stats.toWatch > 0 ? 'Sirada bekliyor' : 'Liste bos'}
+          subtitle={stats.toWatch > 0 ? 'Sırada bekliyor' : 'Liste boş'}
           gradient="bg-gradient-to-br from-amber-500/10 to-transparent"
           iconBg="bg-amber-500/20 text-amber-300"
         />
@@ -66,7 +66,7 @@ export default function StatsDashboard({ movies }) {
           icon={Star}
           label="Ortalama Puan"
           value={avgRatingDisplay}
-          subtitle={stats.avgRating > 0 ? '10 uzerinden' : 'Henuz puan verilmedi'}
+          subtitle={stats.avgRating > 0 ? '10 üzerinden' : 'Henüz puan verilmedi'}
           gradient="bg-gradient-to-br from-pink-500/10 to-transparent"
           iconBg="bg-pink-500/20 text-pink-300"
         />
@@ -80,7 +80,7 @@ export default function StatsDashboard({ movies }) {
             </div>
             <div className="min-w-0">
               <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
-                En Cok Sevdigin Tur
+                En Çok Sevdiğin Tür
               </p>
               <p className="text-sm font-semibold text-white truncate">{stats.favoriteGenre}</p>
             </div>
@@ -94,7 +94,7 @@ export default function StatsDashboard({ movies }) {
             </div>
             <div className="min-w-0">
               <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
-                En Yuksek Puanli
+                En Yüksek Puanlı
               </p>
               <p className="text-sm font-semibold text-white truncate" title={stats.topRated.title}>
                 {stats.topRated.title}{' '}
@@ -111,7 +111,7 @@ export default function StatsDashboard({ movies }) {
             </div>
             <div className="min-w-0">
               <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
-                Toplam Izlenen Bolum
+                Toplam İzlenen Bölüm
               </p>
               <p className="text-sm font-semibold text-white">
                 {stats.totalEpisodesWatched}{' '}
@@ -128,9 +128,9 @@ export default function StatsDashboard({ movies }) {
             </div>
             <div className="min-w-0">
               <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
-                Bu Yil Yapilan
+                Bu Yıl Yapılan
               </p>
-              <p className="text-sm font-semibold text-white">{stats.thisYearCount} yapim</p>
+              <p className="text-sm font-semibold text-white">{stats.thisYearCount} yapım</p>
             </div>
           </div>
         )}

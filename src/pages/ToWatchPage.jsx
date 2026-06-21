@@ -12,9 +12,9 @@ export default function ToWatchPage({ movies, onDelete, onToggleStatus, onNextEp
           <Clock className="w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight">Izleyeceklerim</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">İzleyeceklerim</h1>
           <p className="text-sm text-slate-400">
-            {toWatch.length} yapim sirada seni bekliyor.
+            {toWatch.length} yapım sırada seni bekliyor.
           </p>
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function ToWatchPage({ movies, onDelete, onToggleStatus, onNextEp
         onToggleStatus={onToggleStatus}
         onNextEpisode={onNextEpisode}
         onRestore={onRestore}
-        emptyTitle="Izleme listen bos"
+        emptyTitle="İzleme listen boş"
         emptyMessage="Sonra izlemek istediklerini buraya ekleyebilirsin."
         emptyIcon={Clock}
       />

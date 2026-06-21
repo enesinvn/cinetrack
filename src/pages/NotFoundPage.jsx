@@ -8,10 +8,10 @@ export default function NotFoundPage() {
         <FileQuestion className="w-10 h-10" />
       </div>
       <h1 className="text-3xl font-extrabold text-white">404</h1>
-      <p className="mt-2 text-slate-400">Aradiginiz sayfa bulunamadi.</p>
+      <p className="mt-2 text-slate-400">Aradığınız sayfa bulunamadı.</p>
       <Link to="/" className="btn-primary mt-6">
         <Home className="w-4 h-4" />
-        Ana sayfaya don
+        Ana sayfaya dön
       </Link>
     </section>
   );

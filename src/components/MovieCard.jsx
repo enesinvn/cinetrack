@@ -21,7 +21,7 @@ export default function MovieCard({ movie, onDelete, onToggleStatus, onNextEpiso
   const handleToggleStatus = () => {
     onToggleStatus(movie.id);
     toast.info(
-      isWatched ? 'Tekrar izlenecekler listesine eklendi' : 'Izlendi olarak isaretlendi',
+      isWatched ? 'Tekrar izlenecekler listesine eklendi' : 'İzlendi olarak işaretlendi',
       {
         description: movie.title,
         duration: 2500,
@@ -33,7 +33,7 @@ export default function MovieCard({ movie, onDelete, onToggleStatus, onNextEpiso
     if (!onNextEpisode) return;
     onNextEpisode(movie.id);
     const next = Number(movie.currentEpisode || 0) + 1;
-    toast.info(`Sonraki bolume gecildi`, {
+    toast.info('Sonraki bölüme geçildi', {
       description: `${movie.title} - S${String(movie.currentSeason || 1).padStart(2, '0')}E${String(next).padStart(2, '0')}`,
       duration: 2500,
     });
@@ -106,7 +106,7 @@ export default function MovieCard({ movie, onDelete, onToggleStatus, onNextEpiso
           {isSeries && (
             <span
               className="chip bg-sky-500/20 text-sky-300 border border-sky-500/30 font-mono"
-              title={`Sezon ${movie.currentSeason}, Bolum ${movie.currentEpisode}`}
+              title={`Sezon ${movie.currentSeason}, Bölüm ${movie.currentEpisode}`}
             >
               S{String(movie.currentSeason || 1).padStart(2, '0')}E
               {String(movie.currentEpisode || 1).padStart(2, '0')}
@@ -126,27 +126,27 @@ export default function MovieCard({ movie, onDelete, onToggleStatus, onNextEpiso
               type="button"
               onClick={handleNextEpisode}
               className="flex-1 btn-secondary text-xs py-1.5"
-              title="Sonraki bolume gec"
+              title="Sonraki bölüme geç"
             >
               <SkipForward className="w-3.5 h-3.5" />
-              Sonraki Bolum
+              Sonraki Bölüm
             </button>
           ) : (
             <button
               type="button"
               onClick={handleToggleStatus}
               className="flex-1 btn-secondary text-xs py-1.5"
-              title={isWatched ? 'Izlenmedi olarak isaretle' : 'Izlendi olarak isaretle'}
+              title={isWatched ? 'İzlenmedi olarak işaretle' : 'İzlendi olarak işaretle'}
             >
               {isWatched ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-              {isWatched ? 'Izlenmedi' : 'Izledim'}
+              {isWatched ? 'İzlenmedi' : 'İzledim'}
             </button>
           )}
           <Link
             to={`/edit/${movie.id}`}
             className="btn-secondary p-2"
-            title="Duzenle"
-            aria-label="Duzenle"
+            title="Düzenle"
+            aria-label="Düzenle"
           >
             <Pencil className="w-3.5 h-3.5" />
           </Link>

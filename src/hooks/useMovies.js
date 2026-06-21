@@ -19,7 +19,7 @@ const SEED_DATA = [
     currentEpisode: 1,
     totalSeasons: 0,
     poster: 'https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
-    notes: 'Ruyalar icinde ruyalar. Mukemmel kurgu.',
+    notes: 'Rüyalar içinde rüyalar. Mükemmel kurgu.',
     createdAt: new Date().toISOString(),
   },
   {
@@ -51,7 +51,7 @@ const SEED_DATA = [
     currentEpisode: 16,
     totalSeasons: 5,
     poster: 'https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg',
-    notes: 'Tum zamanlarin en iyi dizisi.',
+    notes: 'Tüm zamanların en iyi dizisi.',
     createdAt: new Date().toISOString(),
   },
 ];

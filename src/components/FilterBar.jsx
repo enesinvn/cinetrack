@@ -4,13 +4,13 @@ import { GENRES, MEDIA_TYPE } from '../interfaces/Movie';
 export const SORT_OPTIONS = [
   { value: 'newest', label: 'En Yeni Eklenen' },
   { value: 'oldest', label: 'En Eski Eklenen' },
-  { value: 'rating', label: 'Puan (Yuksek -> Dusuk)' },
-  { value: 'year', label: 'Yapim Yili (Yeni -> Eski)' },
-  { value: 'title', label: 'Ada Gore (A-Z)' },
+  { value: 'rating', label: 'Puan (Yüksek → Düşük)' },
+  { value: 'year', label: 'Yapım Yılı (Yeni → Eski)' },
+  { value: 'title', label: 'Ada Göre (A-Z)' },
 ];
 
 const TYPE_OPTIONS = [
-  { value: 'all', label: 'Tumu', icon: LayoutGrid },
+  { value: 'all', label: 'Tümü', icon: LayoutGrid },
   { value: MEDIA_TYPE.MOVIE, label: 'Filmler', icon: Film },
   { value: MEDIA_TYPE.SERIES, label: 'Diziler', icon: Tv },
 ];
@@ -55,7 +55,7 @@ export default function FilterBar({
             type="text"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Baslik veya yonetmen ara..."
+            placeholder="Başlık veya yönetmen ara..."
             className="input pl-9 pr-9"
           />
           {search && (
@@ -63,7 +63,7 @@ export default function FilterBar({
               type="button"
               onClick={() => onSearchChange('')}
               className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-slate-800 text-slate-400"
-              aria-label="Aramayi temizle"
+              aria-label="Aramayı temizle"
             >
               <X className="w-4 h-4" />
             </button>
@@ -75,9 +75,9 @@ export default function FilterBar({
             value={genre}
             onChange={(e) => onGenreChange(e.target.value)}
             className="input"
-            aria-label="Tur filtresi"
+            aria-label="Tür filtresi"
           >
-            <option value="all">Tum Turler</option>
+            <option value="all">Tüm Türler</option>
             {GENRES.map((g) => (
               <option key={g} value={g}>
                 {g}
@@ -92,7 +92,7 @@ export default function FilterBar({
             value={sort}
             onChange={(e) => onSortChange(e.target.value)}
             className="input pl-9"
-            aria-label="Siralama"
+            aria-label="Sıralama"
           >
             {SORT_OPTIONS.map((o) => (
               <option key={o.value} value={o.value}>
@@ -105,7 +105,7 @@ export default function FilterBar({
 
       <div className="mt-3 flex items-center justify-between text-xs text-slate-400">
         <span>
-          {resultCount} sonuc
+          {resultCount} sonuç
           {hasActiveFilters && <span className="text-indigo-400"> (filtreli)</span>}
         </span>
         {hasActiveFilters && (
