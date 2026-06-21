@@ -2,6 +2,8 @@
 
 Letterboxd ve IMDb gibi sitelere notlar tutmak yerine kendime küçük bir takip uygulaması yapmak istedim. CineTrack tam olarak bunun için: izlediğim filmleri ve dizileri kaydediyorum, sonra izleyeceklerimi listeye atıyorum, hangi dizide kaçıncı bölümde kaldığımı unutmamak için S2E05 gibi not düşüyorum, sevdiklerime 10 üzerinden puan veriyorum.
 
+Backend yok, sunucu yok. Bütün veriler tarayıcıda (LocalStorage) duruyor; başka kimse görmüyor. Açıp doğrudan kullanmaya başlayabilirsin, kayıt olmaya falan gerek yok.
+
 **Canlı demo:** https://cinetrack-enes.netlify.app/
 
 ## Ekran Görüntüsü
